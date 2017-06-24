@@ -1,0 +1,1 @@
+CREATE USER 'hotel_reviews_scraper'@'localhost' IDENTIFIED WITH mysql_native_password AS '***';GRANT USAGE ON *.* TO 'hotel_reviews_scraper'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `hotel_reviews`.* TO 'hotel_reviews_scraper'@'localhost';
