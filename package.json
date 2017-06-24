@@ -1,0 +1,27 @@
+{
+  "name": "hotel-reviews-scraper",
+  "version": "1.0.0",
+  "description": "A tool created to scrape hotel reviews and create a useful nlp dataset",
+  "main": "start_scraping.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uladkasach/Hotel-Reviews-Scraper.git"
+  },
+  "keywords": [
+    "nlp",
+    "web-scrape"
+  ],
+  "author": "Ulad Kasach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uladkasach/Hotel-Reviews-Scraper/issues"
+  },
+  "homepage": "https://github.com/uladkasach/Hotel-Reviews-Scraper#readme",
+  "dependencies": {
+    "node-horseman": "^3.3.0",
+    "phantomjs-prebuilt": "^2.1.14"
+  }
+}
