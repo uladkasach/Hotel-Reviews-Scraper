@@ -69,6 +69,7 @@ var promise_to_load_many_hotels = horseman
     // open reviews for each hotel
     .count('.review__count')
     .then((count_of_hotels)=>{
+        var count_of_hotels = 10;
         var range_array = Array.apply(null, {length: count_of_hotels}).map(Number.call, Number);
         // chain opening reviews for each hotel found on that page with the reduce function (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
         return range_array.reduce(function(accumulated, current_value){
@@ -107,17 +108,16 @@ var promise_to_load_many_hotels = horseman
     .count('div[itemprop="review"]')
     .then((count_of_reviews)=>{
         console.log("count of reviews : " + count_of_reviews)
-        //if(count_of_reviews > 15) count_of_reviews = 15;
         var range_array = Array.apply(null, {length: count_of_reviews}).map(Number.call, Number);
+        console.log(range_array);
         // chain opening reviews for each hotel found on that page with the reduce function (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
         return range_array.reduce(function(accumulated, current_value){
             return accumulated.then((last_result) => {
                 var i = current_value;
                 //console.log(last_result);
-                console.log("now openning html for review " + i);
+                console.log("now openning html for review " + i + " out of " + count_of_reviews);
                 var this_selection = "div[itemprop='review']:eq("+i+")";
                 return horseman
-                    .wait(150)
                     .html(this_selection)
                     .then((html_content)=>{
                         return new Promise((resolve, reject)=>{
@@ -137,9 +137,15 @@ var promise_to_load_many_hotels = horseman
                             });
                             //console.log(query.sql);
                        });
-                    });
+                    })
+                    .wait(150)
             });
         }, horseman.log());
+    })
+    .then((data)=>{
+        console.log("Procedure successful. Closing MySQL Connection now...");
+        connection.end()
+        return horseman;
     })
 
     // show result

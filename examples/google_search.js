@@ -16,7 +16,7 @@ horseman
     .html()
     .then((html)=>{
         return new Promise((resolve, reject)=>{
-            console.log(html);
+            //console.log(html);
             fs.writeFile("result.html", html)
             resolve();
        })
