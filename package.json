@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/uladkasach/Hotel-Reviews-Scraper#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
     "mysql": "^2.13.0",
     "node-horseman": "^3.3.0",
     "phantomjs-prebuilt": "^2.1.14"
