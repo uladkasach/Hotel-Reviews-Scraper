@@ -1,6 +1,7 @@
-var initial_city_to_search_for = "Chicago,Illinois";
-var initial_start_at_page_number = 3;
+var initial_start_city_number = 3;
+var initial_start_at_page_number = 0;
 
+var all_cities = require("./cities/cities.json");
 
 var Horseman = require('node-horseman');
 var horseman_actions = require("./trivago_horseman_actions/0_index.js")
@@ -39,7 +40,7 @@ console.log("starting...");
 // Define global metadata
 ////////////////////
 GLOBAL.scraping_meta_data = {
-    last_city_parsed : initial_city_to_search_for,
+    last_city_parsed : null,
     last_page_parsed : initial_start_at_page_number,
     recursive_parsing_error_count : 0,
 },
@@ -56,11 +57,30 @@ horseman
         console.log("Opening trivago...");
         return horseman;
     })
+
     .open('http://www.trivago.com')
 
 
-    .search_and_scrape_city(GLOBAL.scraping_meta_data.last_city_parsed, GLOBAL.scraping_meta_data.last_page_parsed)
+    .then((data)=>{
+        var cities_left_to_complete = all_cities;
+        cities_left_to_complete.splice(0, initial_start_city_number);
 
+        console.log(" ")
+        console.log("count of cities left to do : " + cities_left_to_complete.length)
+        // chain scraping for each city left to do
+        return cities_left_to_complete.reduce(function(accumulated, current_city){
+            return accumulated.then((last_result) => {
+                process.stdout.write("Beginning scraping of city " + current_city + "\n");
+                GLOBAL.scraping_meta_data.last_city_parsed = current_city;
+                return horseman.search_and_scrape_city(current_city, GLOBAL.scraping_meta_data.last_page_parsed)
+                    .then((data)=>{
+                        GLOBAL.scraping_meta_data.last_page_parsed = 0;
+                        // reset last page parsed - enables setting initial page to start at 
+                    }) 
+                    .wait(150);
+            });
+        }, horseman.wait(1));
+    })
 
     // handle results
     .then((data)=>{

@@ -118,7 +118,7 @@ module.exports = function(){
                                 //console.log(query.sql);
                            });
                         })
-                        .wait(150)
+                        .wait(1)
                 });
             }, self.wait(1));
         })
