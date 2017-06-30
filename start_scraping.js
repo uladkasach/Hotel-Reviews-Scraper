@@ -1,7 +1,12 @@
+var initial_city_to_search_for = "Chicago,Illinois";
+var initial_start_at_page_number = 3;
+
+
 var Horseman = require('node-horseman');
 var horseman_actions = require("./trivago_horseman_actions/0_index.js")
 Horseman.registerAction('scrape_all_reviews', horseman_actions.scrape_all_reviews);
 Horseman.registerAction('recursively_scrape_each_page', horseman_actions.recursively_scrape_each_page);
+Horseman.registerAction('search_and_scrape_city', horseman_actions.search_and_scrape_city);
 var horseman = new Horseman();
 
 
@@ -29,6 +34,18 @@ global.connection = connection;
 
 console.log("starting...");
 
+
+////////////////////
+// Define global metadata
+////////////////////
+GLOBAL.scraping_meta_data = {
+    last_city_parsed : initial_city_to_search_for,
+    last_page_parsed : initial_start_at_page_number,
+    recursive_parsing_error_count : 0,
+},
+
+
+
 ////////////////////
 // Open hotels page for a city
 ////////////////////
@@ -41,36 +58,9 @@ horseman
     })
     .open('http://www.trivago.com')
 
-    // search for city
-    .then(()=>{
-        console.log("Searching for city...");
-        return horseman;
-    })
-    .type('input[name="sQuery"]', 'New York') //ssg-suggestions
 
-    // wait for results to load
-    .waitFor(function waitForSelectorCount(selector, count) {
-        return $(selector).length >= count
-    }, '.ssg-suggestion', 2, true)
+    .search_and_scrape_city(GLOBAL.scraping_meta_data.last_city_parsed, GLOBAL.scraping_meta_data.last_page_parsed)
 
-    // select city
-    .then(()=>{
-        console.log("Opening city...");
-        return horseman;
-    })
-    .click('.ssg-suggestion:first')
-
-    // wait for atleast 10 open review buttons to load
-    .waitFor(function waitForSelectorCount(selector, count) {
-        return $(selector).length >= count
-    }, '.review__count', 10, true)
-    // wait for page current page to be 1
-    .waitFor(function waitForSelectorCount(selector, value) {
-        return $(selector).text() == value
-    }, '.pagination__pages .btn--active', 1, true)
-
-    // scrape all reviews on each page
-    .recursively_scrape_each_page()
 
     // handle results
     .then((data)=>{
@@ -80,10 +70,10 @@ horseman
         return horseman;
     })
     .catch((e)=>{
+        console.log(" ")
         console.log("there has been some larger error! Ending...")
         console.log(e);
         connection.end()
-        //return promise_to_record_reviews_for_city_and_page(); // try again
     })
 
     .close()

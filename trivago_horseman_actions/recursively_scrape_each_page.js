@@ -1,6 +1,7 @@
-module.exports = function(){
+module.exports = function(start_at_page_number){
     var current_page_number_selector = ".pagination__pages .btn--active";
     var self = this;
+    if(typeof start_at_page_number === "undefined") start_at_page_number = 0;
     return this
         // alert page number of current page
         .html(current_page_number_selector)
@@ -8,11 +9,20 @@ module.exports = function(){
             console.log(" ")
             console.log(" ")
             console.log("Now parsing page " + current_page_number);
-            return self;
+            GLOBAL.scraping_meta_data.last_page_parsed = current_page_number; // set global metadata so that if error occurs we know where we left off
+            return current_page_number;
         })
         
-        // scrape reviews from page
-        .scrape_all_reviews()
+        
+        // scrape reviews from page if page is not before start page number
+        .then((current_page_number)=>{
+            if(current_page_number < start_at_page_number){
+                console.log("Skipping this page, because its before start page.")
+                return self;
+            } else {
+                return self.scrape_all_reviews()
+            }
+        })
         
         // detect if "next" button exists
         .exists(".melody-pagination .btn--next")
@@ -34,7 +44,7 @@ module.exports = function(){
                             }, current_page_number_selector, next_page_number, true)
                     })
                     // scrape the page
-                    .recursively_scrape_each_page();
+                    .recursively_scrape_each_page(start_at_page_number);
             } else {
                 console.log("All pages have been parsed.");
                 return self; // done

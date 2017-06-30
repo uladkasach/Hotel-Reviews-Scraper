@@ -20,9 +20,12 @@ module.exports = function(){
         })
 
         // wait untill atleast 10 show mores are displayed
+        /*
         .waitFor(function waitForSelectorCount(selector, count) {
             return $(selector).length >= count
-        }, ".sl-box__expand-btn", 10, true)
+        }, ".sl-box__expand-btn", 1, true)
+        */
+        .wait(500)
 
         // open "show more" for each hotels reviews
         .count('.sl-box__expand-btn')
@@ -53,10 +56,7 @@ module.exports = function(){
         .then((count_of_reviews)=>{
             console.log(" ")
             console.log("count of reviews : " + count_of_reviews)
-            
-            //return self;
-        
-        
+
             var range_array = Array.apply(null, {length: count_of_reviews}).map(Number.call, Number);
             // chain opening reviews for each hotel found on that page with the reduce function (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
             return range_array.reduce(function(accumulated, current_value){
@@ -122,4 +122,5 @@ module.exports = function(){
                 });
             }, self.wait(1));
         })
+        
 }
