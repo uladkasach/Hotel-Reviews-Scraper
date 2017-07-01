@@ -25,7 +25,7 @@
 25,Nashville-Davidson,Tennessee,634464,16.2%
 26,Baltimore,Maryland,622104,-4.0%
 27,Oklahoma City,Oklahoma,610613,20.2%
-28,Louisville/Jefferson County,Kentucky,609893,10.0%
+28,Louisville,Kentucky,609893,10.0%
 29,Portland,Oregon,609456,15.0%
 30,Las Vegas,Nevada,603488,24.5%
 31,Milwaukee,Wisconsin,599164,0.3%
@@ -116,7 +116,7 @@
 116,Akron,Ohio,198100,-8.6%
 117,Huntington Beach,California,197575,3.9%
 118,Little Rock,Arkansas,197357,7.6%
-119,Augusta-Richmond County,Georgia,197350,1.1%
+119,Augusta,Georgia,197350,1.1%
 120,Amarillo,Texas,196429,12.8%
 121,Glendale,California,196021,0.3%
 122,Mobile,Alabama,194899,-1.9%
@@ -219,7 +219,7 @@
 219,Evansville,Indiana,120310,-0.8%
 220,Santa Clara,California,120245,17.4%
 221,Abilene,Texas,120099,3.6%
-222,Athens-Clarke County,Georgia,119980,19.0%
+222,Athens,Georgia,119980,19.0%
 223,Vallejo,California,118837,1.2%
 224,Allentown,Pennsylvania,118577,11.2%
 225,Norman,Oklahoma,118197,22.0%

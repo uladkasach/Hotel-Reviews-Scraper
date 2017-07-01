@@ -1,4 +1,4 @@
-var initial_start_city_number = 3;
+var initial_start_city_number = 56;
 var initial_start_at_page_number = 0;
 
 var all_cities = require("./cities/cities.json");
@@ -43,6 +43,7 @@ GLOBAL.scraping_meta_data = {
     last_city_parsed : null,
     last_page_parsed : initial_start_at_page_number,
     recursive_parsing_error_count : 0,
+    error_cities_in_a_row : 0, // used to assess whether the error is more fundemental than just one city not loading
 },
 
 
@@ -70,14 +71,24 @@ horseman
         // chain scraping for each city left to do
         return cities_left_to_complete.reduce(function(accumulated, current_city){
             return accumulated.then((last_result) => {
-                process.stdout.write("Beginning scraping of city " + current_city + "\n");
+                process.stdout.write("\n\nBeginning scraping of city " + current_city + "\n");
                 GLOBAL.scraping_meta_data.last_city_parsed = current_city;
                 return horseman.search_and_scrape_city(current_city, GLOBAL.scraping_meta_data.last_page_parsed)
                     .then((data)=>{
                         GLOBAL.scraping_meta_data.last_page_parsed = 0;
+                        GLOBAL.scraping_meta_data.error_cities_in_a_row = 0;
                         // reset last page parsed - enables setting initial page to start at 
-                    }) 
-                    .wait(150);
+                    })
+                    .catch((e)=>{
+                        console.log("Since third time was not the charm, we'll attempt to skip this sity, log the skip, and try the next city. ")
+                        GLOBAL.scraping_meta_data.error_cities_in_a_row += 1;
+                        if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 3){
+                            throw e;
+                        } else {
+                            return true;
+                        }
+                    })
+                    .wait(500);
             });
         }, horseman.wait(1));
     })
