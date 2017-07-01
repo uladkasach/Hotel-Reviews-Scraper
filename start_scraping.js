@@ -1,4 +1,4 @@
-var initial_start_city_number = 97;
+var initial_start_city_number = 132;
 var initial_start_at_page_number = 0;
 
 var all_cities = require("./cities/cities.json");
@@ -8,7 +8,7 @@ var horseman_actions = require("./trivago_horseman_actions/0_index.js")
 Horseman.registerAction('scrape_all_reviews', horseman_actions.scrape_all_reviews);
 Horseman.registerAction('recursively_scrape_each_page', horseman_actions.recursively_scrape_each_page);
 Horseman.registerAction('search_and_scrape_city', horseman_actions.search_and_scrape_city);
-var horseman = new Horseman();
+var horseman = new Horseman({timeout : 10000}); // wait up to 30 seconds for load
 
 var fs = require('fs');
 
@@ -47,6 +47,19 @@ GLOBAL.scraping_meta_data = {
 },
 
 
+    
+////////////////////
+// deliminate cities files
+////////////////////
+fs.appendFile('cities/error_cities.txt', "....................", function (err) {
+  if (err) throw err;
+  //console.log('Saved!');
+});
+fs.appendFile('cities/tried_cities.txt', "....................", function (err) {
+  if (err) throw err;
+  //console.log('Saved!');
+});
+    
 
 ////////////////////
 // Open hotels page for a city
@@ -95,12 +108,8 @@ horseman
                           if (err) throw err;
                           console.log('Saved!');
                         });
-                        if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 3){
+                        if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 10){
                             fs.appendFile('cities/error_cities.txt', "....................", function (err) {
-                              if (err) throw err;
-                              //console.log('Saved!');
-                            });
-                            fs.appendFile('cities/tried_cities.txt', "....................", function (err) {
                               if (err) throw err;
                               //console.log('Saved!');
                             });

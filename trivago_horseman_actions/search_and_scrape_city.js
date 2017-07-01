@@ -23,10 +23,11 @@ module.exports = function(city_to_search_for, start_at_page_number){
         })
         .click('.ssg-suggestion:first')
 
-        // wait for atleast 10 open review buttons to load
+        // wait for atleast 2 open review buttons to load
         .waitFor(function waitForSelectorCount(selector, count) {
             return $(selector).length >= count
-        }, '.review__count', 10, true)
+        }, '.review__count', 2, true)
+        .wait(150)
         // wait for page current page to be 1
         .waitFor(function waitForSelectorCount(selector, value) {
             return $(selector).text() == value
