@@ -11,9 +11,10 @@ module.exports = function(city_to_search_for, start_at_page_number){
         .type('input[name="sQuery"]', city_to_search_for) //ssg-suggestions
 
         // wait for results to load
+        .wait(250)
         .waitFor(function waitForSelectorCount(selector, count) {
             return $(selector).length >= count
-        }, '.ssg-suggestion', 2, true)
+        }, '.ssg-suggestion', 1, true)
 
         // select city
         .then(()=>{

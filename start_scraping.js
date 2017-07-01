@@ -1,4 +1,4 @@
-var initial_start_city_number = 66;
+var initial_start_city_number = 97;
 var initial_start_at_page_number = 0;
 
 var all_cities = require("./cities/cities.json");
@@ -53,7 +53,7 @@ GLOBAL.scraping_meta_data = {
 ////////////////////
 horseman
     .viewport(1300, 900)
-    .userAgent('Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0')
+    .userAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36')
     .then(()=>{
         console.log("Opening trivago...");
         return horseman;
