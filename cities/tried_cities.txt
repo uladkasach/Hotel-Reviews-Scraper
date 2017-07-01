@@ -107,3 +107,149 @@ Vancouver, Washington
 Cape Coral, Florida
 Sioux Falls, South Dakota
 Springfield, Missouri
+Peoria, Arizona
+Pembroke Pines, Florida
+Elk Grove, California
+Salem, Oregon
+....................Salem, Oregon
+Lancaster, California
+Corona, California
+Eugene, Oregon
+Palmdale, California
+Salinas, California
+Springfield, Massachusetts
+Pasadena, Texas
+Fort Collins, Colorado
+Hayward, California
+Pomona, California
+Cary, North Carolina
+Rockford, Illinois
+Alexandria, Virginia
+Escondido, California
+McKinney, Texas
+Kansas City, Kansas
+Joliet, Illinois
+Sunnyvale, California
+Torrance, California
+Bridgeport, Connecticut
+Lakewood, Colorado
+Hollywood, Florida
+Paterson, New Jersey
+Naperville, Illinois
+Syracuse, New York
+Mesquite, Texas
+Dayton, Ohio
+Savannah, Georgia
+Clarksville, Tennessee
+Orange, California
+Pasadena, California
+Fullerton, California
+Killeen, Texas
+Frisco, Texas
+Hampton, Virginia
+McAllen, Texas
+Warren, Michigan
+Bellevue, Washington
+West Valley City, Utah
+Columbia, South Carolina
+Olathe, Kansas
+Sterling Heights, Michigan
+New Haven, Connecticut
+Miramar, Florida
+Waco, Texas
+Thousand Oaks, California
+Cedar Rapids, Iowa
+Charleston, South Carolina
+Visalia, California
+Topeka, Kansas
+Elizabeth, New Jersey
+Gainesville, Florida
+Thornton, Colorado
+Roseville, California
+Carrollton, Texas
+Coral Springs, Florida
+Stamford, Connecticut
+Simi Valley, California
+Concord, California
+Hartford, Connecticut
+Kent, Washington
+Lafayette, Louisiana
+Midland, Texas
+Surprise, Arizona
+Denton, Texas
+Victorville, California
+Evansville, Indiana
+Santa Clara, California
+Abilene, Texas
+Athens, Georgia
+Vallejo, California
+Allentown, Pennsylvania
+Norman, Oklahoma
+Beaumont, Texas
+Independence, Missouri
+Murfreesboro, Tennessee
+Ann Arbor, Michigan
+Springfield, Illinois
+Berkeley, California
+Peoria, Illinois
+Provo, Utah
+El Monte, California
+....................Berkeley, California
+Peoria, Illinois
+Provo, Utah
+El Monte, California
+Columbia, Missouri
+Lansing, Michigan
+Fargo, North Dakota
+Downey, California
+Costa Mesa, California
+Wilmington, North Carolina
+Arvada, Colorado
+Inglewood, California
+Miami Gardens, Florida
+Carlsbad, California
+Westminster, Colorado
+Rochester, Minnesota
+Odessa, Texas
+Manchester, New Hampshire
+Elgin, Illinois
+West Jordan, Utah
+Round Rock, Texas
+Clearwater, Florida
+Waterbury, Connecticut
+Gresham, Oregon
+Fairfield, California
+Billings, Montana
+Lowell, Massachusetts
+San Buenaventura (Ventura), California
+Pueblo, Colorado
+High Point, North Carolina
+West Covina, California
+Richmond, California
+Murrieta, California
+Cambridge, Massachusetts
+Antioch, California
+Temecula, California
+Norwalk, California
+Centennial, Colorado
+....................Pueblo, Colorado
+....................Everett, Washington
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+....................Pueblo, Colorado
+High Point, North Carolina
+West Covina, California
+Richmond, California
+Murrieta, California
+Cambridge, Massachusetts
+Antioch, California
+Temecula, California
+Norwalk, California

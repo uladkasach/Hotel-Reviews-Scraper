@@ -23,16 +23,34 @@ module.exports = function(city_to_search_for, start_at_page_number){
         })
         .click('.ssg-suggestion:first')
 
+    
         // wait for atleast 2 open review buttons to load
         .waitFor(function waitForSelectorCount(selector, count) {
             return $(selector).length >= count
         }, '.review__count', 2, true)
         .wait(150)
-        // wait for page current page to be 1
-        .waitFor(function waitForSelectorCount(selector, value) {
-            return $(selector).text() == value
-        }, '.pagination__pages .btn--active', 1, true)
-
+    
+        // find page count 
+        .waitFor(function waitForSelectorCount(selector) {
+            return $(selector).length > 0
+        }, '.available-number .result_count', true)
+        .text(".available-number .result_count")
+    
+        // wait for page count to be 1 if there is more than one page
+        .then((count_of_hotels_shown)=>{
+            console.log("Found that total count of hotels shown is " + count_of_hotels_shown)
+            if(count_of_hotels_shown > 25){
+                return self
+                    // wait for page current page to be 1
+                    .waitFor(function waitForSelectorCount(selector, value) {
+                        return $(selector).text() == value
+                    }, '.pagination__pages .btn--active', 1, true)
+            } else {
+                return self;
+            }
+        })
+    
+    
         // scrape all reviews on each page
         .recursively_scrape_each_page(start_at_page_number)
     

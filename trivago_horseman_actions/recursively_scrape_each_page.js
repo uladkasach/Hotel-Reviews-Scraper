@@ -8,6 +8,7 @@ module.exports = function(start_at_page_number){
         .then((current_page_number)=>{
             console.log(" ")
             console.log(" ")
+            if(typeof current_page_number === "undefined") current_page_number = 1; // means that page choice buttons are not displayed
             console.log("Now parsing page " + current_page_number);
             GLOBAL.scraping_meta_data.last_page_parsed = current_page_number; // set global metadata so that if error occurs we know where we left off
             return current_page_number;
