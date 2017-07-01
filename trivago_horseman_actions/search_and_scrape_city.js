@@ -6,6 +6,7 @@ module.exports = function(city_to_search_for, start_at_page_number){
         // search for city
         .then(()=>{
             console.log("Searching for city...");
+            throw "test";
             return self;
         })
         .type('input[name="sQuery"]', city_to_search_for) //ssg-suggestions
@@ -49,6 +50,7 @@ module.exports = function(city_to_search_for, start_at_page_number){
                 console.log("Will try again in 5 seconds, starting from the last page started.")
                 return self.wait(5000).search_and_scrape_city(city_to_search_for, GLOBAL.scraping_meta_data.last_page_parsed);
             } else {
+                GLOBAL.scraping_meta_data.recursive_parsing_error_count = 0;
                 console.log("Third time was not the charm. Ending furthur attempt and throwing error now because trying again is not helping.")
                 throw (e);
             }

@@ -10,7 +10,7 @@ Horseman.registerAction('recursively_scrape_each_page', horseman_actions.recursi
 Horseman.registerAction('search_and_scrape_city', horseman_actions.search_and_scrape_city);
 var horseman = new Horseman();
 
-
+var fs = require('fs');
 
 var cheerio = require('cheerio')
 global.cheerio = cheerio;
@@ -82,7 +82,15 @@ horseman
                     .catch((e)=>{
                         console.log("Since third time was not the charm, we'll attempt to skip this sity, log the skip, and try the next city. ")
                         GLOBAL.scraping_meta_data.error_cities_in_a_row += 1;
+                        fs.appendFile('cities/error_cities.txt', current_city + "\n", function (err) {
+                          if (err) throw err;
+                          console.log('Saved!');
+                        });
                         if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 3){
+                            fs.appendFile('cities/error_cities.txt', "....................", function (err) {
+                              if (err) throw err;
+                              //console.log('Saved!');
+                            });
                             throw e;
                         } else {
                             return true;
