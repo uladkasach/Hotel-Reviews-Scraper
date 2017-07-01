@@ -34,6 +34,9 @@ module.exports = function(city_to_search_for, start_at_page_number){
         .waitFor(function waitForSelectorCount(selector) {
             return $(selector).length > 0
         }, '.available-number .result_count', true)
+        .waitFor(function waitForSelectorCount(selector) {
+            return parseInt($(selector).text()) > 0
+        }, '.available-number .result_count', true)
         .text(".available-number .result_count")
     
         // wait for page count to be 1 if there is more than one page

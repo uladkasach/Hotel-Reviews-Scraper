@@ -253,3 +253,74 @@ Cambridge, Massachusetts
 Antioch, California
 Temecula, California
 Norwalk, California
+Centennial, Colorado
+Everett, Washington
+Palm Bay, Florida
+Wichita Falls, Texas
+Green Bay, Wisconsin
+Daly City, California
+Burbank, California
+Richardson, Texas
+Pompano Beach, Florida
+North Charleston, South Carolina
+Broken Arrow, Oklahoma
+Boulder, Colorado
+West Palm Beach, Florida
+Santa Maria, California
+El Cajon, California
+Davenport, Iowa
+Rialto, California
+Las Cruces, New Mexico
+San Mateo, California
+Lewisville, Texas
+South Bend, Indiana
+Lakeland, Florida
+Erie, Pennsylvania
+Tyler, Texas
+Pearland, Texas
+College Station, Texas
+Kenosha, Wisconsin
+Sandy Springs, Georgia
+Clovis, California
+Flint, Michigan
+Roanoke, Virginia
+Albany, New York
+Jurupa Valley, California
+Compton, California
+San Angelo, Texas
+Hillsboro, Oregon
+Lawton, Oklahoma
+Renton, Washington
+Vista, California
+Davie, Florida
+Greeley, Colorado
+Mission Viejo, California
+Portsmouth, Virginia
+Dearborn, Michigan
+South Gate, California
+Tuscaloosa, Alabama
+Livonia, Michigan
+New Bedford, Massachusetts
+Vacaville, California
+Brockton, Massachusetts
+Roswell, Georgia
+Beaverton, Oregon
+Quincy, Massachusetts
+Sparks, Nevada
+Yakima, Washington
+Lee's Summit, Missouri
+Federal Way, Washington
+Carson, California
+Santa Monica, California
+Hesperia, California
+Allen, Texas
+Rio Rancho, New Mexico
+Yuma, Arizona
+Westminster, California
+Orem, Utah
+....................Orem, Utah
+Lynn, Massachusetts
+Redding, California
+Spokane Valley, Washington
+Miami Beach, Florida
+....................Miami Beach, Florida
