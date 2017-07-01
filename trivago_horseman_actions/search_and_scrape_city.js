@@ -6,7 +6,6 @@ module.exports = function(city_to_search_for, start_at_page_number){
         // search for city
         .then(()=>{
             console.log("Searching for city...");
-            throw "test";
             return self;
         })
         .type('input[name="sQuery"]', city_to_search_for) //ssg-suggestions

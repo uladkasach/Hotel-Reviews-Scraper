@@ -1,4 +1,4 @@
-var initial_start_city_number = 56;
+var initial_start_city_number = 66;
 var initial_start_at_page_number = 0;
 
 var all_cities = require("./cities/cities.json");
@@ -73,7 +73,16 @@ horseman
             return accumulated.then((last_result) => {
                 process.stdout.write("\n\nBeginning scraping of city " + current_city + "\n");
                 GLOBAL.scraping_meta_data.last_city_parsed = current_city;
-                return horseman.search_and_scrape_city(current_city, GLOBAL.scraping_meta_data.last_page_parsed)
+                return horseman
+                    .wait(1)
+                    .then((data)=>{
+                        fs.appendFile('cities/tried_cities.txt', current_city + "\n", function (err) {
+                          if (err) throw err;
+                          console.log('Saved!');
+                        });
+                        return horseman;
+                    })
+                    .search_and_scrape_city(current_city, GLOBAL.scraping_meta_data.last_page_parsed)
                     .then((data)=>{
                         GLOBAL.scraping_meta_data.last_page_parsed = 0;
                         GLOBAL.scraping_meta_data.error_cities_in_a_row = 0;
@@ -88,6 +97,10 @@ horseman
                         });
                         if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 3){
                             fs.appendFile('cities/error_cities.txt', "....................", function (err) {
+                              if (err) throw err;
+                              //console.log('Saved!');
+                            });
+                            fs.appendFile('cities/tried_cities.txt', "....................", function (err) {
                               if (err) throw err;
                               //console.log('Saved!');
                             });
