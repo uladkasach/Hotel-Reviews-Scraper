@@ -68,6 +68,7 @@ module.exports = function(city_to_search_for, start_at_page_number){
             GLOBAL.scraping_meta_data.recursive_parsing_error_count += 1;
             console.log("there has been some scraping city " + city_to_search_for)
 
+        
             if(GLOBAL.scraping_meta_data.recursive_parsing_error_count < 3){
                 console.log("Will try again in 5 seconds, starting from the last page started.")
                 return self.wait(5000).search_and_scrape_city(city_to_search_for, GLOBAL.scraping_meta_data.last_page_parsed);
