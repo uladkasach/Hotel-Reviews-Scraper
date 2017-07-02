@@ -8,14 +8,22 @@ module.exports = function(city_to_search_for, start_at_page_number){
             console.log("Searching for city...");
             return self;
         })
+        .clear('input[name="sQuery"]')
         .type('input[name="sQuery"]', city_to_search_for) //ssg-suggestions
 
         // wait for results to load
-        .wait(250)
+        .wait(550)
         .waitFor(function waitForSelectorCount(selector, count) {
             return $(selector).length >= count
-        }, '.ssg-suggestion', 1, true)
+        }, '.ssg-suggestion,.ssg-feedback-no-results', 1, true)
 
+        // determine if this hotel is in trivago
+        .count('.ssg-suggestion')
+        .then((count_of_suggestions)=>{
+            console.log("count of results = " + count_of_suggestions);
+            if(count_of_suggestions == 0) throw {type : "no_results"}; // throw error out to leave this hotel
+        })
+    
         // select city
         .then(()=>{
             console.log("Opening city...");
@@ -67,7 +75,13 @@ module.exports = function(city_to_search_for, start_at_page_number){
         .catch((e)=>{
             GLOBAL.scraping_meta_data.recursive_parsing_error_count += 1;
             console.log("there has been some scraping city " + city_to_search_for)
-
+            
+            self.pdf("result.pdf")
+        
+            if(e.type == "no_results"){
+                console.log("This city was not found in the search. Skipping.");
+                return true;
+            }
         
             if(GLOBAL.scraping_meta_data.recursive_parsing_error_count < 3){
                 console.log("Will try again in 5 seconds, starting from the last page started.")

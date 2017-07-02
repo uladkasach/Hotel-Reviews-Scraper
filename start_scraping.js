@@ -1,4 +1,4 @@
-var initial_start_city_number = 393;
+var initial_start_city_number = 495;
 var initial_start_at_page_number = 0;
 
 var all_cities = require("./cities/cities.json");
@@ -110,6 +110,12 @@ function open_trivago_and_begin_search(){
                             // reset last page parsed - enables setting initial page to start at 
                         })
                         .catch((e)=>{
+                        
+                            if(e.type == "no_results"){
+                                console.log("This city was not found in the search. Skipping.");
+                                return true;
+                            }
+                        
                             console.log("Since third time was not the charm, we'll attempt to skip this sity, log the skip, and try the next city. ")
                             GLOBAL.scraping_meta_data.error_cities_in_a_row += 1;
                             fs.appendFile('cities/error_cities.txt', current_city + "\n", function (err) {
@@ -141,9 +147,12 @@ function open_trivago_and_begin_search(){
         })
         .catch((e)=>{
             // if phantom died, create new horseman and start over
-            if(e.message == "Phantom Process died") {
+            if(e.message == "Phantom Process died" || e.name == "HeadlessError") {
                 // need to create a new horseman
-                console.log("Phantom died has been detected. Beginning timeout for new horseman to be created and search to be continued.")
+                if(e.message == "Phantom Process died") console.log("Phantom died has been detected.");
+                if(e.name == "HeadlessError") console.log("Headless error has been detected.");
+                console.log(e);
+                console.log("Beginning timeout for new horseman to be created and search to be continued.")
                 setTimeout(function(){
                     console.log("Starting search w/ new horseman now.");
                     open_trivago_and_begin_search();

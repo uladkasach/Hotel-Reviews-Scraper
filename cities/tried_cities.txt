@@ -459,3 +459,80 @@ Pleasanton, California
 Wyoming, Michigan
 Lake Charles, Louisiana
 Plymouth, Minnesota
+....................Plymouth, Minnesota
+....................Plymouth, Minnesota
+Bolingbrook, Illinois
+Pharr, Texas
+Appleton, Wisconsin
+Gastonia, North Carolina
+Folsom, California
+Southfield, Michigan
+Rochester Hills, Michigan
+New Britain, Connecticut
+Goodyear, Arizona
+Canton, Ohio
+Warner Robins, Georgia
+Union City, California
+Perris, California
+Manteca, California
+Iowa City, Iowa
+Jonesboro, Arkansas
+Wilmington, Delaware
+Lynwood, California
+Loveland, Colorado
+Pawtucket, Rhode Island
+Boynton Beach, Florida
+Waukesha, Wisconsin
+Gulfport, Mississippi
+Apple Valley, California
+Passaic, New Jersey
+Rapid City, South Dakota
+Layton, Utah
+Lafayette, Indiana
+Turlock, California
+Muncie, Indiana
+Temple, Texas
+Missouri City, Texas
+Redlands, California
+Santa Fe, New Mexico
+....................Santa Fe, New Mexico
+Lauderhill, Florida
+Milpitas, California
+Palatine, Illinois
+Missoula, Montana
+Rock Hill, South Carolina
+Jacksonville, North Carolina
+Franklin, Tennessee
+Flagstaff, Arizona
+Flower Mound, Texas
+Weston, Florida
+Waterloo, Iowa
+Union City, New Jersey
+Mount Vernon, New York
+Fort Myers, Florida
+Dothan, Alabama
+Rancho Cordova, California
+Redondo Beach, California
+Jackson, Tennessee
+Pasco, Washington
+....................Flagstaff, Arizona
+Flower Mound, Texas
+....................Flower Mound, Texas
+....................Flower Mound, Texas
+Weston, Florida
+Waterloo, Iowa
+Union City, New Jersey
+Mount Vernon, New York
+Fort Myers, Florida
+Dothan, Alabama
+Rancho Cordova, California
+....................Flower Mound, Texas
+Weston, Florida
+....................Flower Mound, Texas
+Weston, Florida
+Waterloo, Iowa
+....................Flower Mound, Texas
+Weston, Florida
+Waterloo, Iowa
+....................Flower Mound, Texas
+Weston, Florida
