@@ -536,3 +536,105 @@ Weston, Florida
 Waterloo, Iowa
 ....................Flower Mound, Texas
 Weston, Florida
+....................Flower Mound, Texas
+Weston, Florida
+Waterloo, Iowa
+Union City, New Jersey
+Mount Vernon, New York
+Fort Myers, Florida
+Dothan, Alabama
+Rancho Cordova, California
+Redondo Beach, California
+Jackson, Tennessee
+Pasco, Washington
+St. Charles, Missouri
+Eau Claire, Wisconsin
+North Richland Hills, Texas
+Bismarck, North Dakota
+Yorba Linda, California
+Kenner, Louisiana
+Walnut Creek, California
+Frederick, Maryland
+Oshkosh, Wisconsin
+Pittsburg, California
+Palo Alto, California
+Bossier City, Louisiana
+....................Bossier City, Louisiana
+Portland, Maine
+St. Cloud, Minnesota
+Davis, California
+South San Francisco, California
+Camarillo, California
+North Little Rock, Arkansas
+Schenectady, New York
+Gaithersburg, Maryland
+Harlingen, Texas
+Woodbury, Minnesota
+Eagan, Minnesota
+Yuba City, California
+Maple Grove, Minnesota
+Youngstown, Ohio
+Skokie, Illinois
+Kissimmee, Florida
+Johnson City, Tennessee
+Victoria, Texas
+San Clemente, California
+Bayonne, New Jersey
+Laguna Niguel, California
+East Orange, New Jersey
+Shawnee, Kansas
+Homestead, Florida
+Rockville, Maryland
+Delray Beach, Florida
+Janesville, Wisconsin
+Conway, Arkansas
+Pico Rivera, California
+Lorain, Ohio
+Montebello, California
+Lodi, California
+New Braunfels, Texas
+Marysville, Washington
+Tamarac, Florida
+Madera, California
+Conroe, Texas
+Santa Cruz, California
+Eden Prairie, Minnesota
+Cheyenne, Wyoming
+Daytona Beach, Florida
+Alpharetta, Georgia
+Hamilton, Ohio
+Waltham, Massachusetts
+Coon Rapids, Minnesota
+Haverhill, Massachusetts
+Council Bluffs, Iowa
+Taylor, Michigan
+Utica, New York
+Ames, Iowa
+La Habra, California
+Encinitas, California
+Bowling Green, Kentucky
+Burnsville, Minnesota
+Greenville, South Carolina
+West Des Moines, Iowa
+Cedar Park, Texas
+Tulare, California
+Monterey Park, California
+Vineland, New Jersey
+Terre Haute, Indiana
+North Miami, Florida
+Mansfield, Texas
+West Allis, Wisconsin
+Bristol, Connecticut
+Taylorsville, Utah
+Malden, Massachusetts
+Meriden, Connecticut
+Blaine, Minnesota
+Wellington, Florida
+Cupertino, California
+Springfield, Oregon
+Rogers, Arkansas
+St. Clair Shores, Michigan
+Gardena, California
+Pontiac, Michigan
+....................Pontiac, Michigan
+National City, California

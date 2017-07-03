@@ -1,5 +1,5 @@
-var initial_start_city_number = 495;
-var initial_start_at_page_number = 0;
+var initial_start_city_number = 593;
+var initial_start_at_page_number = 2;
 
 var all_cities = require("./cities/cities.json");
 
