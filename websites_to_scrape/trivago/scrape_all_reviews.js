@@ -46,7 +46,7 @@ module.exports = function(){
         .catch((e)=>{
             console.log("there has been some error getting reviews open. Tring again.")
             console.log(e);
-            if(e.message == "Phantom Process died" || e.name == "HeadlessError") throw e; // if phantom died, throw e.
+            if(e.message == "Phantom Process died" || e.name == "HeadlessError") throw e; // if phantom died or headless errror, throw e.
             //return promise_to_record_reviews_for_city_and_page(); // try again
             return self.scrape_all_reviews();
        })

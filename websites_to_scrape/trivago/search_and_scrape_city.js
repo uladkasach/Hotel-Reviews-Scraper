@@ -1,4 +1,4 @@
-module.exports = function(city_to_search_for, start_at_page_number){
+module.exports = function(city_to_search_for){
     var self = this;
     
     return this
@@ -75,8 +75,10 @@ module.exports = function(city_to_search_for, start_at_page_number){
         .catch((e)=>{
             GLOBAL.scraping_meta_data.recursive_parsing_error_count += 1;
             console.log("there has been some scraping city " + city_to_search_for)
+        
+            if(e.message == "Phantom Process died" || e.name == "HeadlessError") throw e; // if phantom died or headless errror, throw e.
             
-            self.pdf("result.pdf")
+            //self.pdf("result.pdf")
         
             if(e.type == "no_results"){
                 console.log("This city was not found in the search. Skipping.");

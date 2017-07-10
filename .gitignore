@@ -1,4 +1,8 @@
 node_modules/*
-result.html
-result.png
-result.pdf
+!node_modules/node-horseman/lib/index.js
+*.html
+*.png
+*.jpg
+*.pdf
+error_cities.txt
+tried_cities.txt
