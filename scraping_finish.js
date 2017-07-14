@@ -2,7 +2,7 @@
     this file needs to facilitate the continuous retreival of URLS on which reviews reside (hotel urls) from the database, and for each link to scrape the reviews. 
 */
 var initial_conditions = {
-    review_page: 3000,
+    review_page: 0, // note - this value is always overwritten by last_scraped_page in db
 }
 
 

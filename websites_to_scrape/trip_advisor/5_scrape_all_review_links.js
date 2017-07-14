@@ -11,13 +11,14 @@ module.exports = function(){
         })
         .then(()=>{
             return new Promise((resolve, reject)=>{
-                var query = connection.query('SELECT `LinkID`, `Link`, `ReviewCount` FROM `review_links` WHERE `Scraped` = 0 ORDER BY `ReviewCount` DESC LIMIT 1', function(err, result) {
+                var query = connection.query('SELECT `LinkID`, `Link`, `ReviewCount`, `LastPageScraped` FROM `review_links` WHERE `Scraped` = 0 ORDER BY `ReviewCount` DESC LIMIT 1', function(err, result) {
                     if(err === null){
                         var source_result = result[0];
                         var cleaned_result = {
                             id : source_result.LinkID,
                             url : source_result.Link,
                             count : source_result.ReviewCount,
+                            last_page_scraped : source_result.LastPageScraped,
                         }
                         console.log(cleaned_result);
                         resolve([cleaned_result, true]);
@@ -36,6 +37,7 @@ module.exports = function(){
             var review_link = data[0];
             var url = review_link.url;
             global.current_review_link_id = review_link.id;
+            global.scraping_metadata.index.review_page = review_link.last_page_scraped;
             var review_count = review_link.count;
             return horseman
                 .open("https://www.tripadvisor.com"+url)
