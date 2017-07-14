@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // define initial conditions
 var initial_conditions = {
-    city : 0,
+    city : 999,
     city_page : 0,
     hotel : 0,
     review_page: 0,
@@ -45,6 +45,7 @@ GLOBAL.logging = require("./logging.js");
 // select the website and load relevant horseman functions
 var website = require("./websites_to_scrape/trip_advisor/_load.js");
 website.register_horseman_actions(); // register horseman actions
+website.define_initial_conditions(initial_conditions);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

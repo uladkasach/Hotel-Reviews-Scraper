@@ -34,40 +34,29 @@ module.exports = function(){
                 // search for and open the city
                 .open_the_city(current_city) // ----- throws {type: "no_matches"} error if city has not autocomplete options
             
-                // scrape the current city
-                //.scrape_open_city()
-            
-                /*
-                // update error counts 
+                // for each review button, record the link
+                .recursivly_scrape_each_city_page()
+                
                 .then((data)=>{
-                    GLOBAL.scraping_meta_data.last_page_parsed = 0;
-                    GLOBAL.scraping_meta_data.error_cities_in_a_row = 0;
-                    GLOBAL.scraping_meta_data.last_successful_city_index = current_city_index;
-                    // reset last page parsed - enables setting initial page to start at 
+                    console.log("Scraped city successfully!");
+                    return horseman;
                 })
                 .catch((e)=>{
-                    if(e.type == "no_matches"){
-                        console.log("This city was not found in the search. Skipping.");
-                        return true; // resolve successfully
-                    }
-                    if(e.message == "Phantom Process died" || e.name == "HeadlessError") throw e;
-
-                    console.log("Since third time was not the charm, we'll attempt to skip this sity, log the skip, and try the next city. ")
-                    GLOBAL.scraping_meta_data.error_cities_in_a_row += 1;
-                    GLOBAL.logging.log_city_error(current_city);
-                    if(GLOBAL.scraping_meta_data.error_cities_in_a_row > 10){
-                        console.log("Actually, error has occured too many times. Throwing larger error.")
-                        fs.appendFile('cities/error_cities.txt', "....................", function (err) {
-                          //if (err) throw err;
-                          //console.log('Saved!');
-                        });
-                        throw e;
-                    } else {
-                        return true;
-                    }
+                    console.log("Full error scraping this city...");
+                    console.log(e);
+                    global.scraping_metadata.error_counts.citylevel += 1;
+                    if(global.scraping_metadata.error_counts.citylevel > 3) throw e; // more than 3 in a row
+                    console.log("Skipping this city and trying next....")
+                    global.logging.log_city_error(current_city + " : " + current_city_index);
+                    return horseman;
                 })
-                .wait(500);
-                */
+            
+                // cleanup indicies
+                .then((data)=>{
+                    global.scraping_metadata.index.city_page = 0;
+                    return horseman;
+                })
+             
         });
     }, horseman.wait(1));
     

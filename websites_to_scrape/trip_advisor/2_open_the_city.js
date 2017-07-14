@@ -21,6 +21,22 @@ module.exports = function(city_to_open){
     return this
         .wait(21)
         
+        .then(()=>{ // output opening
+            console.log("Opening Trip Advisor...");
+            return horseman;
+        })
+        .open('https://www.tripadvisor.com/Hotels')  
+        .then(()=>{ // output opening
+            console.log("Opened Trivago. Waiting for everything to load...");
+            return horseman;
+        })
+        .catch((e)=>{
+            console.log("Caught an early error.")
+            console.log(e)
+        })
+        .waitForNextPage({timeout: 15000}) // wait up to 15 seconds for first page
+
+    
         .then(()=>{
             console.log("Searching for city " + city_to_open + "...");
             return horseman;
@@ -46,7 +62,7 @@ module.exports = function(city_to_open){
         .clear('input#GEO_SCOPED_SEARCH_INPUT')
         .type('input#GEO_SCOPED_SEARCH_INPUT', city_to_open)
         .wait(500)
-        .waitForNextPage()
+        //.waitForNextPage()
 
         .then(()=>{
             console.log("Selecting first search result...");
@@ -67,8 +83,8 @@ module.exports = function(city_to_open){
             console.log("Clicking final search button...");
             return horseman;
         })
-        .exists(final_search_button_selector)
-        .log()
+        //.exists(final_search_button_selector)
+        //.log()
         .click(final_search_button_selector)
         .waitForNextPage()
         
@@ -83,6 +99,7 @@ module.exports = function(city_to_open){
         .waitForNextPage()
     
     
+    
         // snapshot and exit
         /*
         .screenshot("page.jpg")
@@ -95,6 +112,7 @@ module.exports = function(city_to_open){
             console.log("Catching an error:")
             console.log(e);
             console.log("Should probably try again...");
+            horseman.screenshot("z_screenshots/test.jpg");
             throw e;
         })
     

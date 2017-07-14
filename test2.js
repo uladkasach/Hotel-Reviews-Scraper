@@ -1,0 +1,3 @@
+var cheerio = require("cheerio");
+$ = cheerio.load('<div class="ratingReview"><div class="bubbleRating"><div class="prw_rup prw_common_bubble_rating" data-prwidget-name="common_bubble_rating" data-prwidget-init=""><span class="ui_bubble_rating bubble_40" style="font-size:18px;" property="ratingValue" content="4" alt="4 of 5 bubbles"></span></div></div><span class="reviewCount"><a href="/Hotel_Review-g35805-d87617-Reviews-Hyatt_Regency_Chicago-Chicago_Illinois.html#REVIEWS" onclick="" target="_blank">6,505 reviews </a></span></div>')
+console.log($.html())
