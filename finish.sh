@@ -4,5 +4,5 @@ for i in {1..$1}; do
     node scraping_finish.js $2
     end=`date +%s`
     runtime=$((end-start))
-    echo $runtime >> runtimes.log
+    echo "run for time $i, for claimant $2, took "$runtime >> runtimes.log
 done
