@@ -64,10 +64,6 @@ module.exports = function(){
             }
         })
     
-        .then((data)=>{
-            process.exit();
-        })
-    
         // open the review link
         .then((review_link)=>{
             console.log("Opening Trip Advisor Review Link...");
