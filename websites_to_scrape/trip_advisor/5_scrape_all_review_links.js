@@ -86,18 +86,39 @@ module.exports = function(){
         .then(()=>{
             return horseman
                 // recursivly scrape each review page
-                .recursively_scrape_each_review_page().then(()=>{ return 1; });
+                .recursively_scrape_each_review_page()
 
+        })
+        .then(()=>{ 
+            global.scraping_metadata.error_counts.citylevel = 0;
+            return 1;
         })
         .catch((e)=>{
             //console.log(Object.keys(e));
             (''+e).substring(0,100);
-            console.log("caught error, going to move forward and mark this city negative one...");
-            return horseman.wait(1500).then(()=>{ return -1; });
+            var return_value = 0;    
+            console.log("[(!)] Caught error scraping the city, going to retry city.")
+            global.scraping_metadata.error_counts.citylevel += 1;
+            if(global.scraping_metadata.error_counts.citylevel > 3){
+                console.log("[(!)] Actually, error occured more than 3 times. Going to skip this city by settings status to negative one...");
+                return_value = -1;
+            }
+            return horseman.wait(2500).then(()=>{ return return_value; });
         })
     
         // mark the review link as scraped
         .then((scrape_value)=>{
+            if(scrape_value == -1){
+                global.scraping_metadata.error_counts.skipcities += 1;
+                if(global.scraping_metadata.error_counts.skipcities > 3){
+                    console.log("!(!)! More than 3 cities have been skipped in a row. Chances are slim all is working correctly. Exiting...")
+                    throw {type:"SKIPCITIES"};
+                }
+            }
+            if(scrape_value == 1){
+                global.scraping_metadata.error_counts.skipcities = 0;
+            }
+        
             process.exit;
             return new Promise((resolve, reject)=>{
                 console.log("updating last review link to scraped_status " + scrape_value)

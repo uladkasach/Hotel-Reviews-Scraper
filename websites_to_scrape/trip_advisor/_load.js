@@ -43,6 +43,8 @@ module.exports = {
             },
             error_counts : {
                 toplevel : 0,
+                citylevel : 0,
+                skipcities : 0,
             }
         };
         if(typeof initial_conditions !== "undefined"){
@@ -58,7 +60,7 @@ module.exports = {
         
         var horseman = new GLOBAL.Horseman({timeout : 10000, ignoreSSLErrors: true}); // define new horseman which waits atmost 10 seconds for loading
         horseman.on('error', (err) => {
-            //console.log("  regular error caught");
+            console.log(" (x) regular error caught");
             //console.log(err);
         })
         horseman.on('resourceError', (err) => {
@@ -119,12 +121,14 @@ module.exports = {
             })
             .scrape_all_review_links() // custom horseman action
             .catch((e)=>{
-                console.log("Top level error detected...");
+                console.log(" ");
+                console.log("(E) Top level error detected...");
                 horseman.screenshot("page_error.jpg")
                 console.log(e);
                 global.scraping_metadata.error_counts.toplevel += 1;
                 if(global.scraping_metadata.error_counts.toplevel > 3) throw e;
-                console.log("Retrying...")
+                console.log(" -- Retrying...")
+                console.log(" ");
                 return this.return_promise_for_scraping_every_review_from_database();
             })
           

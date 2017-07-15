@@ -6,6 +6,3 @@ for i in `seq $1`; do
     runtime=$((end-start))
     echo "run for time $i, for claimant $2, took "$runtime >> runtimes.log
 done
-
-# touch /var/www/git/Hotel-Reviews-Scraper/runtimes.log
-# sudo tail -fn 1000 /var/www/git/Hotel-Reviews-Scraper/runtimes.log
