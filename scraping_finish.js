@@ -69,7 +69,7 @@ global.grab_trip_advisor_rating_from = function($, rating_holder){
         process.exit();
     }
     return rating;
-}
+};
 
 
 
