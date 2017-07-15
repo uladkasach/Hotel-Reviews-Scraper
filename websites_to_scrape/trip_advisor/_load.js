@@ -72,7 +72,7 @@ module.exports = {
             }
         })
         horseman.on("urlChanged", (new_url)=>{
-            console.log(" (!) Phantom Url Changed to : " + new_url);
+            //console.log(" (!) Phantom Url Changed to : " + new_url);
         })
         
         return horseman

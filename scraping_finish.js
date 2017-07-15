@@ -5,6 +5,12 @@ var initial_conditions = {
     review_page: 0, // note - this value is always overwritten by last_scraped_page in db
 }
 
+var claimant_identifier = process.argv[2]; 
+if(typeof claimant_identifier === "undefined"){
+    var claimant_identifier = "STANDARD";
+}
+global.claimant = claimant_identifier;
+
 
 // initialize MYSQL connection
 var mysql = require('mysql');
