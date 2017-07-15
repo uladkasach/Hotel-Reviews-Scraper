@@ -10,6 +10,16 @@ You may want to turn off the rejection node-horseman throws when it gets a certa
     
 ## Data Managment
 Because of errors, current position / next position to navigate to should be indexed by global data - not by dependency injection
+    ```
+    if (status !== 'success') {
+        var err = new Error('Failed to load url');
+        //return HorsemanPromise.reject(err);
+        console.log(" (x) Should be rejecting the promise here...")
+    }
+    ```
+    293 in sudo nano node_modules/node-horseman/lib/index.js
+    
+    
     
 ## Logic
 General framework for trip advisor is as follows:

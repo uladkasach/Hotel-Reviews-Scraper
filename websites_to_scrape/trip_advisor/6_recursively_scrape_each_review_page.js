@@ -68,7 +68,7 @@ module.exports = function(start_at_page_number){
                 // click next page
                 .click(next_page_button_selector)
                 // wait for loading div to disapear (i.e., contents to load)
-                .wait(5000)
+                .wait(100)
                 .waitFor(function waitForDisapear(selector, value){
                     return $(selector).text() == value;
                 }, current_page_number_selector, next_page_number, true)
@@ -94,7 +94,7 @@ module.exports = function(start_at_page_number){
                 console.log("All pages have been parsed.");
                 console.log("");
                 global.scraping_metadata.index.review_page = 0;
-                return horseman.wait(3000); // done
+                return horseman.wait(200); // done
             } else {
                 throw data; // we caught an error instead
             }

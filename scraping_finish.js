@@ -70,3 +70,11 @@ global.grab_trip_advisor_rating_from = function($, rating_holder){
     }
     return rating;
 }
+
+
+
+
+// keep alive
+(function wait () {
+   if (!global.exit_condition) setTimeout(wait, 1000);
+})();
